@@ -19,36 +19,42 @@ var _ButtonsSpace2 = _interopRequireDefault(_ButtonsSpace);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Component = function Component(props) {
-    if (!props.buttons) {
-        return null;
+    if (props.buttons) {
+        return _react2.default.createElement(
+            'footer',
+            { className: props.className },
+            _react2.default.createElement(_ButtonsSpace2.default, {
+                buttonClick: props.buttonClick,
+                onOk: props.onOk,
+                onClose: props.onClose,
+                className: props.className + '__left-space',
+                wildClasses: props.wildClasses,
+                btnClass: props.btnClass,
+                defaultOk: props.defaultOk,
+                defaultCancel: props.defaultCancel,
+                buttons: props.buttons.left
+            }),
+            props.footer,
+            _react2.default.createElement(_ButtonsSpace2.default, {
+                buttonClick: props.buttonClick,
+                onOk: props.onOk,
+                onClose: props.onClose,
+                className: props.className + '__right-space',
+                wildClasses: props.wildClasses,
+                btnClass: props.btnClass,
+                defaultOk: props.defaultOk,
+                defaultCancel: props.defaultCancel,
+                buttons: props.buttons.right
+            })
+        );
+    } else if (props.footer) {
+        return _react2.default.createElement(
+            'footer',
+            { className: props.className },
+            props.footer
+        );
     }
-
-    return _react2.default.createElement(
-        'footer',
-        { className: props.className },
-        _react2.default.createElement(_ButtonsSpace2.default, {
-            buttonClick: props.buttonClick,
-            onOk: props.onOk,
-            onClose: props.onClose,
-            className: props.className + '__left-space',
-            wildClasses: props.wildClasses,
-            btnClass: props.btnClass,
-            defaultOk: props.defaultOk,
-            defaultCancel: props.defaultCancel,
-            buttons: props.buttons.left
-        }),
-        _react2.default.createElement(_ButtonsSpace2.default, {
-            buttonClick: props.buttonClick,
-            onOk: props.onOk,
-            onClose: props.onClose,
-            className: props.className + '__right-space',
-            wildClasses: props.wildClasses,
-            btnClass: props.btnClass,
-            defaultOk: props.defaultOk,
-            defaultCancel: props.defaultCancel,
-            buttons: props.buttons.right
-        })
-    );
+    return null;
 };
 
 Component.displayName = 'PopupFooter';
@@ -64,7 +70,8 @@ Component.propTypes = {
     onClose: _propTypes2.default.func,
     buttonClick: _propTypes2.default.func,
     defaultOk: _propTypes2.default.string,
-    defaultCancel: _propTypes2.default.string
+    defaultCancel: _propTypes2.default.string,
+    footer: _propTypes2.default.any
 };
 Component.defaultProps = {
     buttons: null,
@@ -73,6 +80,7 @@ Component.defaultProps = {
     btnClass: null,
     defaultOk: null,
     defaultCancel: null,
+    footer: null,
     buttonClick: function buttonClick() {},
     onOk: function onOk() {},
     onClose: function onClose() {}

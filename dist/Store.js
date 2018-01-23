@@ -72,7 +72,7 @@ var PopupStore = function (_EventEmitter) {
             var id = this.active;
             this.active = null;
 
-            this.emit(_Constants2.default.CLOSE);
+            this.emit(_Constants2.default.CLOSE, id);
             this.dispatch();
 
             this.value = null;

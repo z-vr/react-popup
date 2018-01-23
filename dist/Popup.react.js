@@ -69,7 +69,8 @@ var initialState = {
     className: null,
     noOverlay: false,
     position: false,
-    closeOnOutsideClick: true
+    closeOnOutsideClick: true,
+    footer: null
 };
 
 var Component = function (_React$Component) {
@@ -289,7 +290,8 @@ var Component = function (_React$Component) {
                 className: popup.className,
                 noOverlay: popup.noOverlay,
                 position: popup.position,
-                closeOnOutsideClick: popup.closeOnOutsideClick
+                closeOnOutsideClick: popup.closeOnOutsideClick,
+                footer: popup.footer
             }, function () {
                 _keymaster2.default.setScope('react-popup');
 
@@ -490,7 +492,8 @@ var Component = function (_React$Component) {
                         onOk: handleClose,
                         defaultOk: this.props.defaultOk,
                         defaultCancel: this.props.defaultCancel,
-                        buttons: this.state.buttons
+                        buttons: this.state.buttons,
+                        footer: this.state.footer
                     })
                 );
             }
