@@ -159,7 +159,7 @@ class Component extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.boxRef) {
+        if (this.boxRef && !this.props.skipFocus) {
             this.boxRef.focus();
         }
 
@@ -427,6 +427,7 @@ Component.propTypes = {
     wildClasses: PropTypes.bool,
     closeOnOutsideClick: PropTypes.bool,
     escToClose: PropTypes.bool,
+    skipFocus: PropTypes.bool,
 };
 
 Component.defaultProps = {
@@ -441,6 +442,7 @@ Component.defaultProps = {
     wildClasses: false,
     closeOnOutsideClick: true,
     escToClose: true,
+    skipFocus: false,
 };
 
 export default Component;
