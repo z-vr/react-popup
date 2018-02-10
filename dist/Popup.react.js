@@ -204,7 +204,7 @@ function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      if (this.boxRef) {
+      if (this.boxRef && !this.props.skipFocus) {
         this.boxRef.focus();
       }
 
@@ -512,7 +512,8 @@ Component.propTypes = {
   defaultCancelKey: _propTypes.default.string,
   wildClasses: _propTypes.default.bool,
   closeOnOutsideClick: _propTypes.default.bool,
-  escToClose: _propTypes.default.bool
+  escToClose: _propTypes.default.bool,
+  skipFocus: _propTypes.default.bool
 };
 Component.defaultProps = {
   className: 'mm-popup',
@@ -525,7 +526,8 @@ Component.defaultProps = {
   defaultCancelKey: 'esc',
   wildClasses: false,
   closeOnOutsideClick: true,
-  escToClose: true
+  escToClose: true,
+  skipFocus: false
 };
 var _default = Component;
 exports.default = _default;
